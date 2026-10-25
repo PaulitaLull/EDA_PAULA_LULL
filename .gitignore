@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# MIOS
+CY09_MS_STU_PUF.sav
+eeuu*/
+Encuesta*/
+docu*/
+
+
 # Distribution / packaging
 .Python
 build/
