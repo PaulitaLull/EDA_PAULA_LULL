@@ -5,10 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 archivo_valencia = 'data/pisa_valencia.csv'
-
 df_valencia=pd.read_csv(archivo_valencia)
-# print(df_valencia.shape)
-
 
 # PASO 1: PREPARACIÓN DE LAS COLUMNAS Y DATOS
 # Generamos automáticamente los nombres de las 10 columnas de lectura (PV1READ hasta PV10READ)
@@ -18,11 +15,8 @@ pv_cols = [f"PV{i}READ" for i in range(1, 11)]
 cols_necesarias = ['ESCS', 'W_FSTUWT'] + pv_cols
 
 # Limpiamos el DataFrame eliminando cualquier fila (alumno) que tenga valores nulos 
-# en estas columnas clave para evitar errores matemáticos.
+# en estas columnas clave para evitar errores matemáticos. 92 nulos de ESCS
 df_estudio1 = df_valencia[cols_necesarias]
-# print(df_estudio1.info())
-
-# Añadimos .dropna() para eliminar únicamente los 92 nulos de ESCS
 df_estudio1_limpio = df_valencia[cols_necesarias].dropna()
 print(f"Alumnos en la muestra original: 1.712")
 print(f"Alumnos válidos para la regresión tras eliminar nulos: {len(df_estudio1_limpio)}")
