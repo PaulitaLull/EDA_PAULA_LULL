@@ -4,6 +4,8 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# BLOQUE MERAMENTE DESCRIPTIVO, Y DE CORRELACIONES DENTRO DE UNA CCAA PARA UN AÑO DET 
+
 archivo_valencia = 'data/pisa_valencia.csv'
 df_valencia=pd.read_csv(archivo_valencia)
 
