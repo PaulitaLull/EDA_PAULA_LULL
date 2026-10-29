@@ -1,42 +1,4 @@
-import pandas as pd
-import numpy as np
-import statsmodels.api as sm
-import matplotlib.pyplot as plt
-import seaborn as sns
 
-archivo_valencia = 'data/pisa_valencia.csv'
-df_valencia=pd.read_csv(archivo_valencia)
-# ESP33=publico, ESP34=privado
-
-# PASO 1: PREPARACIÓN DE LAS COLUMNAS Y DATOS (92 valores nulos eliminados)
-pv_cols = [f"PV{i}READ" for i in range(1, 11)]
-columnas_necesarias=["STRATUM", 'W_FSTUWT',"ESCS"]+pv_cols
-df_valencia_titularidad=df_valencia[columnas_necesarias]
-df_valencia_titularidad=df_valencia_titularidad.dropna()
-print(df_valencia_titularidad.shape)
-
-df_tit_estads=df_valencia_titularidad.groupby(df_valencia_titularidad["STRATUM"]).agg(
-        Media_Lectura=('PV1READ', 'mean'),
-        Std_Lectura=('PV1READ', 'std'),
-        Media_ESCS=('ESCS', 'mean'),
-        Std_ESCS=('ESCS', 'std'),
-        Total_Alumnos=('PV1READ', 'count')
-)
-
-print(df_tit_estads)
-
-# 4. Visualización: Diagrama de caja (Boxplot) comparando Lectura por titularidad
-plt.figure(figsize=(8, 6))
-sns.boxplot(
-    data=df_valencia_titularidad, x="STRATUM", y='PV1READ', palette='Set2'
-)
-plt.title(
-    'Distribución de la Competencia Lectora: Pública vs Privada (C. Valenciana)'
-)
-plt.xlabel('Titularidad del Centro')
-plt.ylabel('Puntuación en Lectura (PV1READ)')
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-plt.show()
 
 # # Limpiamos el DataFrame eliminando cualquier fila (alumno) que tenga valores nulos 
 # # en estas columnas clave para evitar errores matemáticos. 92 nulos de ESCS
