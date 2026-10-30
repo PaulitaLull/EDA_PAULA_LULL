@@ -4,8 +4,7 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-archivo_valencia = 'data/pisa_valencia.csv'
-df_valencia=pd.read_csv(archivo_valencia)
+df_valencia=pd.read_csv("data/pisa_valencia25.csv")
 
 # print(df_valencia.groupby("CNTSCHID")["ST326Q01JA"].nunique())
 # print(df_valencia["ST326Q01JA"].value_counts(dropna=False).sort_index())
