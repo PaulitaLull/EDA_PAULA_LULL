@@ -2,16 +2,18 @@ import pandas as pd
 import numpy as np
 
 
-# C. Mediana Ponderada (el valor donde se acumula el 50% de la población ponderada)
+# Mediana Ponderada (el valor donde se acumula el 50% de la población ponderada)
 def calcular_mediana_ponderada(vals, wts):
     df_temporal = pd.DataFrame({'val': vals, 'wt': wts}).sort_values('val')
     wt_acumulado = df_temporal['wt'].cumsum()
     valormedio_wt = df_temporal['wt'].sum() / 2.0
     return df_temporal.loc[wt_acumulado >= valormedio_wt, 'val'].iloc[0]
 
+# Media Ponderada
 def media_pond(notas, pesos):
     return (notas * pesos).sum() / pesos.sum()
 
+# Media total con su error típico
 def media_con_error(df, pv_cols, rep_cols, peso="W_FSTUWT"):
 
     medias_pv = []
@@ -35,7 +37,7 @@ def media_con_error(df, pv_cols, rep_cols, peso="W_FSTUWT"):
     return media_final, error, len(df)
 
 
-# Devuelve, la diferencia de la media entre dos años, el nuevo error actualizado,
+# Devuelve, la diferencia de la media entre dos años, el nuevo error actualizado por la comparación de años,
 # y el intérvalo de confianza al 95% +-
 def comparar(m_a, e_a, m_b, e_b, ee_enlace=0):
     dif = m_b - m_a                                     # diferencia de las medias totales de los años
@@ -44,7 +46,6 @@ def comparar(m_a, e_a, m_b, e_b, ee_enlace=0):
 
 # Función porcentaje con pesos. Le paso df y el valor del idioma test que busco (depende del ciclo)
 # 1ºfiltro a hispanoablantes
-
 def pct_idioma(df, casa, prueba):
     # 1. Convertimos 'casa' a lista si es un valor único
     if not isinstance(casa, list):
@@ -68,6 +69,7 @@ def pct_idioma(df, casa, prueba):
     # Devolvemos el porcentaje sobre el total de la base
     return 100 * (numerador / denominador)
 
+# % de alumnado según su origen
 def pct_inmigracion(df):
     # Base: alumnos con IMMIG válido (1, 2 o 3) y peso NO NULO
     d = df[df["IMMIG"].isin([1, 2, 3])].dropna(subset=["W_FSTUWT"])

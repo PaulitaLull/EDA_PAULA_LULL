@@ -23,7 +23,7 @@ En PISA 2025, la puntuación media en lectura del alumnado de 15 años de la Com
 - **Idioma de la prueba:** el alumnado evaluado en valenciano es del 22% en 2018, 4% en 2022 y 20% en 2025. Este último año se parece al del 2018, así que explica poco la caida.
 - **Pantallas:** las horas de uso digital en el centro parecen pasar de 1,33 a 1,41 al día entre 2022 y 2025, sin cambios relevantes, y la lectura cae en todos los tramos de uso. De la misma manera, el tiempo invertido en pantallas e IA por los alumnos fuera del aula no refleja una posible causa.
 
-**Conclusión:** ninguno de los factores explorados explica por sí solo la caída, que aparece en todos los grupos, incluido el alumnado nativo. Quedan abiertos nuevos frentes de exploración como las metodologías docentes, las políticas educativas propias de los centros valencianos y un estudio más detallado de el uso de pantallas e IA. 
+**Conclusión:** ninguno de los factores explorados explica por sí solo la caída, que aparece en todos los grupos, incluido el alumnado nativo. Quedan abiertos nuevos frentes de exploración como las metodologías docentes, las políticas educativas propias de los centros valencianos, un estudio más detallado de el uso de pantallas e IA y las respectivas comparaciones con el resto de comunidades autónomas de España. 
 
 ## Estructura del repositorio
 
@@ -71,8 +71,7 @@ Requiere Python 3.12 con `pandas`, `numpy`, `statsmodels`, `matplotlib`, `seabor
 
 - Análisis descriptivo y exploratorio: los resultados no permiten conclusiones causales.
 - Varias comparaciones (idioma, origen migratorio, pantallas, titularidad) se presentan sin margen de error.
-- Las preguntas sobre pantallas y metodologías cambian de formulación entre ediciones, y la pregunta sobre IA solo existe en 2025; no se pueden comparar con ciclos anteriores.
-- El ESCS de 2025 puede no ser comparable con el de ciclos anteriores.
+- Las preguntas sobre pantallas y metodologías cambian de formulación entre ediciones, y la pregunta sobre IA solo existe en 2025, por lo que no se pueden comparar con años anteriores.
 
 ## Presentación
 
